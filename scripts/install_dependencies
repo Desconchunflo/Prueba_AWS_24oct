@@ -1,3 +1,23 @@
 #!/bin/bash
-yum install -y httpd
 
+# Actualizar el sistema
+sudo apt update
+sudo apt upgrade -y
+
+# Lista de paquetes a instalar
+packages=("apache2" "php" "php-cli" "php-fpm" "php-json" "php-common" "php-mysql" "php-zip" "php-gd" "php-mbstring" "php-curl" "php-xml" "php-pear" "php-bcmath")
+
+# Instalar paquetes
+for package in "${packages[@]}"; do
+  if ! dpkg -l | grep -q "ii  $package "; then
+    sudo apt install -y $package
+    if [ $? -ne 0 ]; then
+      echo "Error: No se pudo instalar el paquete $package."
+      exit 1
+    fi
+  else
+    echo "$package ya está instalado."
+  fi
+done
+
+echo "Instalación completada."
