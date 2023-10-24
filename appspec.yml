@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/Prueba_AWS/
+    destination: /var/www/html/Prueba_AWS_24oct/
 
 hooks:
   BeforeInstall:
