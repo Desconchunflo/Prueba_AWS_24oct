@@ -1,14 +1,14 @@
 <?php
-$dsn = 'dblib:host=db-test.chrdtmiepdxg.us-west-2.rds.amazonaws.com:1433;dbname=test;';
+$dsn = 'mysql:host=database-7nov23.cupvyhh4tc17.us-east-1.rds.amazonaws.com:3306;dbname=pruebasnov23;';
 $user = 'admin';
-$password = 'Aa246680';
+$password = 'locuaz24';
 
 try {
 
   $dbh = new PDO($dsn, $user, $password);
 
   $result = $dbh->query("SELECT * 
-    FROM usuario;");
+    FROM ALUMNOS;");
 
   foreach ($result as $row) {
     echo '<pre>';
